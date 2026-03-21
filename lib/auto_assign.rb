@@ -10,7 +10,6 @@
 
 module AutoAssign
   def self.setup
-    Rails.logger.info ">>> AutoAssign.setup CALLED"
     TimeEntry.prepend AutoAssign::Patches::TimeEntryPatch
   end
 end
