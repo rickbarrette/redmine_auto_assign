@@ -15,7 +15,7 @@ Redmine::Plugin.register :redmine_auto_assign do
   name 'Redmine Auto Assign plugin'
   author 'Rick Barrette'
   description 'Automatically assigns an issue to the first user who logs time against it.'
-  version '2026.3.0'
+  version '2026.10.0'
   url 'https://github.com/rickbarrette/redmine_auto_assign'
   author_url 'https://barrettefabrication.com'
   requires_redmine version_or_higher: '6.1.0'
