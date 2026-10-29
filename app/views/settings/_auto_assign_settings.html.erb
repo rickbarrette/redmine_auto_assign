@@ -1,0 +1,17 @@
+<div class="box tabular">
+  <p>
+    <label for="settings_starting_status_id"><%= l(:label_auto_assign_starting_status) %></label>
+    <%= select_tag 'settings[starting_status_id]',
+                   options_from_collection_for_select(IssueStatus.sorted, :id, :name, settings['starting_status_id'].to_i),
+                   include_blank: l(:label_auto_assign_tracker_default), id: 'settings_starting_status_id' %>
+    <em class="info"><%= l(:text_auto_assign_starting_status) %></em>
+  </p>
+
+  <p>
+    <label for="settings_in_progress_status_id"><%= l(:label_auto_assign_in_progress_status) %></label>
+    <%= select_tag 'settings[in_progress_status_id]',
+                   options_from_collection_for_select(IssueStatus.sorted, :id, :name, settings['in_progress_status_id'].to_i),
+                   include_blank: l(:label_auto_assign_named_in_progress), id: 'settings_in_progress_status_id' %>
+    <em class="info"><%= l(:text_auto_assign_in_progress_status) %></em>
+  </p>
+</div>

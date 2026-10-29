@@ -12,4 +12,23 @@ module AutoAssign
   def self.setup
     TimeEntry.prepend AutoAssign::Patches::TimeEntryPatch
   end
+
+  def self.settings
+    Setting.plugin_redmine_auto_assign || {}
+  rescue StandardError
+    {}
+  end
+
+  # The status an issue must be at to be moved: the one chosen in settings, else the tracker's default
+  # status (what new issues start as), so renaming "New" doesn't break it
+  def self.starting_status_for(issue)
+    chosen = settings['starting_status_id'].to_i
+    (IssueStatus.find_by(id: chosen) if chosen.positive?) || issue.tracker&.default_status
+  end
+
+  # The status to move to: the one chosen in settings, else a status named "In Progress"
+  def self.in_progress_status
+    chosen = settings['in_progress_status_id'].to_i
+    (IssueStatus.find_by(id: chosen) if chosen.positive?) || IssueStatus.find_by(name: 'In Progress')
+  end
 end

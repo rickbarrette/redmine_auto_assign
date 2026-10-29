@@ -18,6 +18,11 @@ Redmine::Plugin.register :redmine_auto_assign do
   version '2026.3.0'
   url 'https://github.com/rickbarrette/redmine_auto_assign'
   author_url 'https://barrettefabrication.com'
+  requires_redmine version_or_higher: '6.1.0'
+
+  # Blank settings: start from each tracker's default status, move to a status named "In Progress"
+  settings default: { 'starting_status_id' => '', 'in_progress_status_id' => '' },
+           partial: 'settings/auto_assign_settings'
 end
 
 AutoAssign.setup

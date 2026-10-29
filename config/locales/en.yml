@@ -1,0 +1,8 @@
+en:
+  label_auto_assign_starting_status: "Move issues from"
+  label_auto_assign_in_progress_status: "Move issues to"
+  label_auto_assign_tracker_default: "(each tracker's default status)"
+  label_auto_assign_named_in_progress: "(the status named In Progress)"
+  text_auto_assign_starting_status: "When time is logged on an issue at this status, it's moved on. Default: each tracker's default status, the one new issues start with."
+  text_auto_assign_in_progress_status: "The status issues move to when time is first logged. Only applied when the workflow allows the change for the person logging time."
+  text_auto_assign_journal_note: "Updated automatically when time was logged."
